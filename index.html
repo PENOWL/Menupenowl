@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Wayung Penowl</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-utensils"></i>
+                    <h1>Menu Wayung Penowl</h1>
+                </div>
+                <button id="adminLoginBtn" class="btn btn-primary">
+                    <i class="fas fa-user-lock"></i>
+                    Admin Login
+                </button>
+            </div>
+        </header>
+
+        <div id="adminPanel" class="admin-panel">
+            <div class="admin-controls">
+                <button onclick="showAddModal()" class="btn btn-primary">
+                    <i class="fas fa-plus"></i>
+                    Tambah Menu
+                </button>
+                <button onclick="confirmReset()" class="btn btn-danger">
+                    <i class="fas fa-sync-alt"></i>
+                    Reset Menu
+                </button>
+                <button onclick="handleLogout()" class="btn btn-danger">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-section" id="foodSection">
+            <h2>Makanan</h2>
+            <div class="menu-grid" id="foodGrid">
+                <!-- Food items will be rendered here -->
+            </div>
+        </div>
+
+        <div class="menu-section" id="beverageSection">
+            <h2>Minuman</h2>
+            <div class="menu-grid" id="beverageGrid">
+                <!-- Beverage items will be rendered here -->
+            </div>
+        </div>
+    </div>
+
+    <div id="menuModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Tambah Menu</h2>
+                <button class="btn" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="menuForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label class="form-label" for="menuName">Nama Menu</label>
+                    <input type="text" id="menuName" class="form-control" required minlength="3">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="menuPrice">Harga (Rp)</label>
+                    <input type="number" id="menuPrice" class="form-control" required min="1000">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="menuCategory">Kategori</label>
+                    <select id="menuCategory" class="form-control" required>
+                        <option value="food">Makanan</option>
+                        <option value="beverage">Minuman</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn" onclick="closeModal()">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
